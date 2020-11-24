@@ -1,0 +1,447 @@
+
+:root {
+    /* Text */
+    --sub-heading: hsl(276, 100%, 81%);
+    --chat-left-clr: hsl(276, 55%, 52%);
+    --chat-right-clr: hsl(271, 15%, 43%);
+    --placeholder-text: hsl(206, 6%, 79%);
+    --main-heading: hsl(271, 36%, 24%);
+    --para:  hsl(270, 7%, 64%);
+
+    /* Gradient */
+    --light-magenta: hsl(293, 100%, 63%);
+    --light-violet: hsl(264, 100%, 61%);
+
+    /* Secondary */
+    --white: hsl(0, 0%, 100%);
+    --app-bg: hsl(270, 20%, 96%);
+    --btn-violet: hsl(271, 36%, 24%);
+    --rd-btn-bg:  hsl(289, 100%, 72%);
+
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+
+    font-family: "Rubik", sans-serif;
+    font-size: 16px;
+}
+
+body {
+    max-width: 1440px;
+    margin: 0 auto;
+    overflow: hidden;
+    background-color: var(--app-bg);
+}
+
+.chat {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+    position: relative;
+    height: 100%;
+}
+
+.chat::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -40px;
+    width: 400px;
+    height: 600px;
+    background: linear-gradient(200deg,var(--light-magenta) 0%, var(--light-violet) 80%);
+    border-radius: 0 0 200px 200px;
+    z-index: -999;
+}
+
+.chat::after {
+    content: "";
+    position: absolute;
+    
+    bottom: -129px;
+    right: -120px;
+    width: 400px;
+    height: 600px;
+    background: linear-gradient(200deg,var(--light-magenta) 0%, var(--light-violet) 80%);
+    border-radius:  200px 200px 0 0;
+    opacity: 0.04;
+    
+}
+
+.chat__left {
+    flex: 0.5;
+}
+
+.chat__phone-outer {
+  
+    width: 270px;
+    height: 500px;
+    border-radius: 40px;
+    margin-left: 18em;
+    margin-top: 5em;
+    z-index: 10;
+    box-shadow: 0px 20px 64px hsla(271, 36%, 24%, 0.4);
+    background-color: white;
+    
+}
+
+.chat__right {
+  flex: 0.5;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 2em;
+}
+
+.chat__right > h1 {
+    font-size: 32px;
+    text-align: left;
+    color: var(--main-heading);
+    margin-bottom: 1em;
+    
+}
+
+.chat__right > p {
+    font-size: 13px;
+    width: 50%;
+    line-height: 1.8;
+    color: var(--para);
+
+}
+
+.chat__phone-inner {
+    background-color: var(--app-bg);
+    width: 240px;
+    height: 460px;
+    margin: 0 auto;
+    overflow: hidden;
+    position: relative;
+    top: 20px; 
+    border-radius: 25px;
+}
+
+.chat__header {
+    width: 240px;
+    height: 70px;
+    background: linear-gradient(200deg,var(--light-magenta), var(--light-violet) );
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    box-shadow: 0px 2px 10px hsla(271, 36%, 24%, 0.2);
+    
+}
+
+.chat__info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 0.4em;
+    padding: 0 .7em;
+}
+
+.chat__notch {
+    width: 120px;
+    height: 20px;
+    background:white;
+    margin: 0 auto;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+}
+
+.chat__avatar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+}
+
+.chat__arrow-left {
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    display: inline-block;
+    padding: 3px;
+    transform: rotate(135deg);
+    margin-right: 0.4em;
+    
+}
+
+.chat__info-left {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.chat__avatar > img {
+    height: 25px;
+    border-radius: 50%;
+    border: 1px solid white;
+}
+
+.chat__avatar > p {
+    font-size: 12px;
+    font-weight: 500;
+    color: white;
+    margin-left: 0.6em;
+    padding-top: 0.3em;
+    line-height: 1;
+
+}
+
+.span {
+    font-size: 8px;
+    opacity: .4;
+   line-height: 0;
+}
+
+.chat__dot {
+    width: 4px;
+    height: 4px;
+    background: white;
+    border-radius: 50%;
+    margin-top: .2em;
+    opacity: .3;
+}
+
+.chat__timi {
+  background: var(--sub-heading);
+  opacity: .8;
+  width: 65%;
+  height: auto;
+  border-radius: 8px;
+  padding: .4em;
+  margin-top: .5em;
+  margin-left: .5em;
+  margin-right: .5em;
+  float: left;
+  
+  animation-name: left;
+  animation-duration: 2s;
+  position: relative;
+}
+
+@keyframes left {
+    0% {
+        left: -200px; 
+    }
+       100% {
+        left: 0px;
+    }
+}
+
+.chat__timi > p {
+    font-size: 9px;
+    color: var(--chat-left-clr);
+    font-weight: 600; 
+    line-height: 1.4;
+}
+
+.chat__dayo {
+    margin-top: 1em;
+    padding: 0 .5em;
+    float: right;
+  animation-name: right;
+  animation-duration: 2s ;
+  position: relative;
+}
+
+@keyframes right {
+    0% {
+        right:-200px; 
+    }
+       100% {
+        right: 0px;
+    }
+}
+
+.chat__dayo > img {
+    height: 40px;
+    border-radius: 10px;
+    float: right;
+   margin: 0 .2em;
+}
+
+.chat__dayo > p {
+    font-size: 9px;
+    line-height: 1.4;
+    color: var(--chat-right-clr);
+    font-weight: 600;
+    float: right;
+    background: var(--white);
+    opacity: .8;
+    width: 140px;
+    height: auto;
+    max-width: fit-content;
+   
+    border-radius: 5px;
+    padding: .5em;
+    margin-top: .5em;
+    margin-left: .5em;
+    margin-right: .5em;
+}
+
+.chat__prize {
+    float: left;
+    margin: .4em .5em;
+    margin-bottom: .1em;
+    padding: .5em;
+    width: 154px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(200deg, var(--light-violet), var(--light-magenta) );
+    
+    border-radius: 10px 7px 7px 3px;
+
+    animation-name: top;
+    animation-duration: 1s;
+    position: relative;
+}
+
+@keyframes top {
+    0% {
+       opacity: 0; transform: translateY(10px);
+    }
+    100% {
+        opacity: 1; transform: translateZ(10px);
+    }
+}
+ 
+.chat__circle {
+    width: 14px;
+    height: 14px;
+    border: 1px solid white;
+    border-radius: 50%;
+    opacity: .5;
+    
+}
+
+.chat__prize > p {
+    font-size: 7px;
+    padding-left: 1em;
+    color: #ddd;
+    width: 60px;
+}
+
+.money {
+    padding-left: 2em;
+    font-size: 14px;
+    color: white;
+} 
+
+.chat__footer {
+    margin-left: .5em;
+    margin-right: .5em;
+    transform: translateY(7px);
+}
+
+.chat__footer > input {
+    padding: .34em;
+    border-radius: 20px;
+    width: 100%;
+    outline: 0;
+    border: 0;
+    font: 10px;
+}
+
+::placeholder {
+    font-size: 10.5px;
+    color: var(--placeholder-text);
+}
+
+input[type="text"] {
+    font-size: 10.5px;
+    padding: 1em;
+    opacity: .4;
+}
+
+.chat__circle-arrow {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    position: absolute;
+    top: 352px;
+    right: 10px;
+    background: var(--btn-violet);
+    padding-left: .3em;
+    padding-top: 0em;
+    
+}
+
+.chat__right-arrow {
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    display: inline-block;
+    padding: 3px;
+    transform: rotate(-45deg);
+}
+
+@media (max-width: 1175px) {
+    body {
+        overflow: scroll;
+    }
+    .chat {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .chat__right {
+      align-items: center;
+      justify-content: center;
+      margin-left: 16em;
+    }
+
+    .chat__right > p {
+        text-align: center;
+       
+       
+    }
+} 
+
+@media (max-width: 695px) {
+
+
+    .chat__phone-outer {
+        margin-left: 1em;
+    }
+
+    .chat__right > p {
+        width: 80%;
+    }
+
+    .chat__right {
+        margin-top: 6em;
+        margin-left: 0;
+    }
+
+    .chat::before {
+        content: "";
+        position: absolute;
+        top: -100px;
+        left: -140px;
+       
+        width: 400px;
+        height: 600px;
+        background: linear-gradient(200deg,var(--light-magenta) 0%, var(--light-violet) 80%);
+        border-radius: 0 0 200px 200px;
+        z-index: -999;
+    }
+
+    .chat::after {
+        content: "";
+        position: absolute;
+        
+        bottom: -229px;
+        right: -120px;
+        width: 400px;
+        height: 600px;
+        background: linear-gradient(200deg,var(--light-magenta) 0%, var(--light-violet) 80%);
+        border-radius:  200px 200px 0 0;
+        opacity: 0.04;
+        
+    }
+}
+
